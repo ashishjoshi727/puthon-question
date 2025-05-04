@@ -1,0 +1,31 @@
+# Question 2: Print employee names and their IT projects (using Python)
+
+import pandas as pd
+
+# Employee Data
+employees = pd.DataFrame({
+    'emp_id': [1, 2, 3, 4, 5, 6, 7, 8],
+    'emp_name': ['Alice', 'Bob', 'Charlie', 'Diana', 'Edward', 'Fiona', 'George', 'Hannah'],
+    'department': ['HR', 'IT', 'Finance', 'IT', 'HR', 'Finance', 'Marketing', 'HR'],
+    'salary': [50000, 60000, 70000, 75000, 55000, 68000, 48000, 52000],
+    'hire_date': ['2020-03-10', '2019-07-15', '2021-01-05', '2020-08-20', '2022-11-01', '2021-06-18', '2018-03-25', '2020-11-30']
+})
+
+# Projects Data
+projects = pd.DataFrame({
+    'project_id': [101, 102, 103, 104, 105],
+    'project_name': ['HR Software', 'Website Update', 'Financial Report', 'Marketing Camp', 'Employee Portal'],
+    'department': ['HR', 'IT', 'Finance', 'Marketing', 'IT'],
+    'budget': [30000, 50000, 40000, 20000, 60000],
+    'start_date': ['2020-04-01', '2020-01-15', '2021-02-10', '2019-10-05', '2021-05-01'],
+    'end_date': ['2020-10-01', '2020-06-15', '2021-08-10', '2020-04-05', '2022-05-01']
+})
+
+# Filter IT department employees and projects
+it_employees = employees[employees['department'] == 'IT']
+it_projects = projects[projects['department'] == 'IT']
+
+# Join IT employees with their projects
+it_emp_proj = it_employees.merge(it_projects, on='department')
+print("Employee names and their projects in IT department:")
+print(it_emp_proj[['emp_name', 'project_name']])
