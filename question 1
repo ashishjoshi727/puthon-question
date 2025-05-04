@@ -1,0 +1,7 @@
+# Question 1: SQL Query
+# Run this SQL in your database environment
+
+# Find the Average salary of the IT department
+SELECT AVG(salary) AS average_salary
+FROM employees
+WHERE department = 'IT';
