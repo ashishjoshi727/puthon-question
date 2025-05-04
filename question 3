@@ -1,0 +1,16 @@
+# Question 3: Find product IDs that are both low fat and recyclable
+
+import pandas as pd
+
+# Products Data
+products = pd.DataFrame({
+    'product_id': [0, 1, 2, 3, 4],
+    'low_fats': ['Y', 'Y', 'N', 'Y', 'N'],
+    'recyclable': ['N', 'Y', 'Y', 'Y', 'N']
+})
+
+# Filter products that are both low fat and recyclable
+filtered_products = products[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y')]
+
+print("Products that are both low fat and recyclable:")
+print(filtered_products[['product_id']])
